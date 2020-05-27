@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "main": "index.js",
     "dependencies": {
-        "@line/bot-sdk": "^6.8.4"
+        "@line/bot-sdk": "^6.8.4",
+        "firebase-admin": "^8.12.1"
     }
 }

@@ -40,15 +40,15 @@ exports.deviceLog =
 
     let logData;
     try {
-        logData = message.json;
+      logData = message.json;
     } catch (e) {
-        return 0;
+      return 0;
     }
 
     // ******************** Firestore
-    db.collection("messages").doc("published").set({
-        current: logData,
-        createdAt: new Date()
+    db.collection("users").doc("_published").set({
+      current: logData,
+      createdAt: new Date()
     });
     // ********************
 

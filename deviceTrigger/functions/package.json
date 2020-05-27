@@ -12,7 +12,7 @@
   "engines": {
     "node": "8"
   },
-  "main": "lib/index.js",
+  "main": "lib/deviceTrigger/functions/src/index.js",
   "dependencies": {
     "@google-cloud/logging": "^1.2.0",
     "firebase-admin": "^8.10.0",
