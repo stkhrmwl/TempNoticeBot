@@ -1,6 +1,15 @@
 import * as functions from 'firebase-functions';
 const loggingClient = require('@google-cloud/logging');
 
+// ******************** Firestore
+const admin = require('firebase-admin');
+import SERVICE_ACCOUNT from './service_account.json';
+admin.initializeApp({
+  credential: admin.credential.cert(SERVICE_ACCOUNT)
+});
+const db = admin.firestore();
+// ********************
+
 // create the Stackdriver Logging client
 const logging = new loggingClient({
   projectId: process.env.GCLOUD_PROJECT,
@@ -35,6 +44,13 @@ exports.deviceLog =
     } catch (e) {
         return 0;
     }
+
+    // ******************** Firestore
+    db.collection("messages").doc("published").set({
+        current: logData,
+        createdAt: new Date()
+    });
+    // ********************
 
     // write the log entry to Stackdriver Logging
     const entry = log.entry(metadata, logData);
