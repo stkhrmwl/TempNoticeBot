@@ -1,0 +1,8 @@
+{
+    "name": "reply-bot",
+    "version": "0.1.0",
+    "main": "index.js",
+    "dependencies": {
+        "@line/bot-sdk": "^6.8.4"
+    }
+}
