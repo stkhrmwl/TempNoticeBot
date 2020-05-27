@@ -29,10 +29,10 @@ function handleEvent(event) {
 
   // ******************** Firestore
   if (message.match(/気温/) || message.match(/湿度/) || message.match(/体感温度/)) {
-    message = 'ストアから情報を取得します。\nお待ちください。';
+    message = 'データベースから取得しています...';
     userId = event.source.userId;
     db.collection("users").doc(userId).set({
-      isWaiting: true
+      replyToken: event.replyToken
     });
   }
   // ********************
